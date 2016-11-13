@@ -1,0 +1,39 @@
+
+
+
+<html>
+<head>
+  <title>Dynamic Poetry</title>
+  <style type="text/css">
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #444;
+      background-color: #eee;
+    }
+
+    h1 {
+      font-size: 90px;
+      line-height: 100px;
+    }
+  </style>
+  <!-- <link type="text/css" rel="stylesheet" href="assets/stylesheets/bootstrap.min.css" /> -->
+  <link type="text/css" rel="stylesheet" href="assets/stylesheets/style.css" />
+</head>
+<body>
+<h1><span class="dynamo" data-speed="500" data-delay="1000" data-lines="I dream,Why,This is">To be</span></h1>
+<h1><span class="dynamo" data-lines="alive,questioning,encompassing">an artist</span></h1>
+<h1><span class="dynamo" data-delay="2000" data-lines="subtle,frail minds,is an angel">on the soft earth</span></h1>
+<h1><span class="dynamo" data-speed="200" data-delay="4000" data-lines="do not.,forgive!, we are one..., and in love?">under the moon.</span></h1>
+
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/javascripts/dynamo.min.js"></script>
+<script type="text/javascript">
+  $('#manual_example').click(function() {
+    $(this).dynamo_trigger();
+  });
+
+</script>
+</body>
+</html>

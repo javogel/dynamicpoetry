@@ -1,0 +1,160 @@
+
+<html>
+<head>
+  <title>dynamo.js</title>
+  <link type="text/css" rel="stylesheet" href="assets/stylesheets/bootstrap.min.css" />
+  <link type="text/css" rel="stylesheet" href="assets/stylesheets/style.css" />
+</head>
+<body>
+  <a href="https://github.com/jdan/dynamo.js"><img style="position: fixed; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+  <div id="content">
+    <div id="welcome-mat">
+      <h1>dynam<span class="dynamo" data-lines="ic">o</span></h1>
+      <p>A dead-simple way to generate dynamic bits of HTML and add subtle effects to your content.</p>
+      <div id="buttons">
+        <iframe src="http://ghbtns.com/github-btn.html?user=jdan&repo=dynamo.js&type=watch&count=true"
+          allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
+        <iframe src="http://ghbtns.com/github-btn.html?user=jdan&repo=dynamo.js&type=fork&count=true"
+          allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
+      </div>
+    </div>
+
+    <hr class="soften" />
+
+    <h1>
+      About
+      <a href="https://travis-ci.org/jdan/dynamo.js">
+        <img src="https://travis-ci.org/jdan/dynamo.js.png" />
+      </a>
+    </h1>
+
+    <p>Dynamo is the <span class="dynamo" data-speed="150" data-delay="1300" data-lines="easiest,cutest,helpful,pretty,subtle">simple</span> way to add a new dimension to your site content.
+      Cycle through various bits of text to add subtle variations to your work, or to draw attention to portions of your webpage. It was
+      created by <a href="http://jordanscales.com">this guy</a> and can be found on
+      <a href="http://github.com/jdan/dynamo.js">GitHub</a>.</p>
+
+    <hr class="soften" />
+
+    <h1>Usage</h1>
+
+    <p>Implementing dynamo with your content involves little setup. Wrap your text in a container, specify the lines you want to cycle
+      through, and start the engine with <code>$('#target').dynamo()</code>. Dynamo works with the help of
+      <a href="http://jquery.com">jQuery</a>. For example:</p>
+
+    <div class="row">
+      <div class="span5">
+        <pre class="example">&lt;p&gt;I wish I could change the text here.&lt;/p&gt;</pre>
+      </div>
+      <div class="span5">
+        <div class="example">
+          <p>I wish I could change the text here.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span5">
+        <pre class="example">&lt;p&gt;I wish I could &lt;span class="dynamo" data-lines="modify,mutate,morph,switch"&gt;change&lt;/span&gt; the text here.&lt;/p&gt;</pre>
+      </div>
+      <div class="span5">
+        <div class="example">
+          <p>I wish I could <span class="dynamo" data-lines="modify,mutate,morph,switch">change</span> the text here.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span5">
+        <pre class="example">&lt;p&gt;This element is &lt;span class="dynamo" data-lines="not paused." data-pause="true"&gt;paused&lt;/span&gt;&lt;/p&gt;</pre>
+      </div>
+      <div class="span5">
+        <div class="example">
+          <p>This element is <span class="dynamo" data-lines="not paused." data-pause="true">paused.</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span5">
+        <pre class="example">&lt;p&gt;&lt;span id="manual_example" class="dynamo" data-pause="true" data-lines="[click again!],[and again!],[once more!]"&gt;[click here!]&lt;/span&gt;&lt;/p&gt;</pre>
+      </div>
+      <div class="span5">
+        <div class="example">
+          <p><span id="manual_example" class="dynamo" data-pause="true" data-lines="[click again!],[and again!],[once more!]">[click here!]</span></p>
+        </div>
+      </div>
+    </div>
+
+    Later on we have the following...
+
+    <div class="row">
+      <div class="span5">
+    <pre class="example">&lt;script type="text/javascript"&gt;
+  $('#manual_example').click(function() {
+    $(this).dynamo_trigger();
+  });
+&lt;/script&gt;</pre>
+      </div>
+    </div>
+
+    And launch it with... (<i>this is done automatically for you if your include tag is at the end of </i><code>&lt;/body&gt;</code><i>, but you can use </i><code>.dynamo()</code><i> on any target</i>)
+
+    <div class="row">
+      <div class="span5">
+        <pre class="example">&lt;script type="text/javascript"&gt;
+$(function() {
+  $('.dynamo').dynamo();
+});
+&lt;/script&gt;
+        </pre>
+      </div>
+      <div class="span5">
+        <div class="example">
+          <i>View our source (it's chock full of examples)</i>
+        </div>
+      </div>
+    </div>
+
+    <hr class="soften" />
+
+    <h1>Options</h1>
+
+    <p><b>You can customize dynamo using data attributes:</b>
+      <ul>
+        <li><code>data-lines</code>: the bits of text (comma-separated) that cycle. Original text not included.</li>
+        <li><code>data-speed</code>: the speed of the transition (<i>default: 350ms</i>)</li>
+        <li><code>data-delay</code>: the delay between cycles (<i>default: 3000ms</i>)</li>
+        <li><code>data-center</code>: center the text in the dynamo container (<i>default: false</i>)</li>
+        <li><code>data-delimiter</code>: change the character (or string) used to separate your bits of text (<i>default: ,</i>)</li>
+        <li><code>data-pause</code>: sets up the dynamo, but does not automatically transition (<i>default: false</i>)</li>
+        <li><code>data-callback</code>: a function to be called each time the dynamo container completes a full cycle</li>
+      </ul>
+    </p>
+
+    <p><b>Alternatively, you can pass an options hash</b> - which takes precedence over data attributes - when calling <code>.dynamo()</code> like so:</p>
+
+    <pre class="example">$('#mytarget').dynamo({
+    delay: 1000,
+    lines: ['next text', 'after that', 'even later'],
+    callback: function() { console.log('All items have been shown') }
+});</pre>
+
+    <p><b>IMPORTANT:</b> Since dynamo automatically initializes DOM elements with class <code>.dynamo</code>, you will not be able to pass options to these elements (data attributes will still work, though). This is because dynamo prevents the user from initializing a dynamo container more than once.</p>
+
+    <hr class="soften" />
+
+    <p class="foot">
+      &copy; 2013 <a href="http://jordanscales.com">Jordan Scales</a> | MIT Licensed | <a href="http://github.com/jdan/dynamo.js">GitHub</a>
+    </p>
+  </div>
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/javascripts/dynamo.min.js"></script>
+  <script type="text/javascript">
+    $('#manual_example').click(function() {
+      $(this).dynamo_trigger();
+    });
+
+</body>
+</html>
