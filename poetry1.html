@@ -1,0 +1,39 @@
+
+
+
+<html>
+<head>
+  <title>Dynamic Poetry</title>
+  <style type="text/css">
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #444;
+      background-color: #eee;
+    }
+
+    h1 {
+      font-size: 90px;
+      line-height: 100px;
+    }
+  </style>
+  <!-- <link type="text/css" rel="stylesheet" href="assets/stylesheets/bootstrap.min.css" /> -->
+  <link type="text/css" rel="stylesheet" href="assets/stylesheets/style.css" />
+</head>
+<body>
+<h1>A <span class="dynamo" data-speed="100" data-delay="3500" data-lines="Woman,Frog,Dream">Man</span></h1>
+<h1><span class="dynamo" data-lines="carried on,lay down,looking at the sky"> held on</span></h1>
+<h1>on <span class="dynamo" data-delay="2900" data-lines="a glimmer of hope,night, the bed"> a fleeting thought</span></h1>
+<h1>and said: <span class="dynamo" data-speed="200" data-delay="4000" data-lines="you are me.,I am you., we are all together"> the time has come.</span></h1>
+
+
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="assets/javascripts/dynamo.min.js"></script>
+<script type="text/javascript">
+  $('#manual_example').click(function() {
+    $(this).dynamo_trigger();
+  });
+
+</script>
+</body>
+</html>
